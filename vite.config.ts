@@ -5,7 +5,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter()],
   ssr: {
-    noExternal: ["/@syncfusion/"],
+    noExternal: [/@syncfusion/],
   },
   resolve: {
     tsconfigPaths: true,

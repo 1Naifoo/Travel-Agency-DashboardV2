@@ -1,19 +1,70 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import { sidebarItems } from "~/constants";
+import { cn } from "~/lib/utils";
 
+const NavItems = ({handleClick}: {handleClick?: () => void}) => {
 
-const NavItems = () => {
-    return (
-        <section className="nav-items">
-            <Link to="/" className="link-logo">
-                <img
-                    src="/assets/icons/logo.svg"
-                    alt="Logo"
-                    className="w-[30px] h-[30px]"
-                />
-                <h1>Tourpisto</h1>
-            </Link>
-        </section>
-    );
+const user = {
+    name: 'Naif',
+    email: 'naif.mo.un@gmail.com',
+    imageUrl: '/assets/images/Naif.jpg'
+}
+
+  return (
+    <section className="nav-items">
+      <Link to="/" className="link-logo">
+        <img
+          src="/assets/icons/logo.svg"
+          alt="Logo"
+          className="w-[30px] h-[30px]"
+        />
+        <h1>Tourpisto</h1>
+      </Link>
+
+      <div className="container">
+        <nav>
+          {sidebarItems.map(({ id, href, icon, label }) => (
+            <NavLink to={href} key={id}>
+              {({ isActive }: { isActive: boolean }) => (
+                <div
+                  className={cn("group nav-item", {
+                    "bg-primary-100 !text-white": isActive,
+                  })} onClick={handleClick} >
+                  <img
+                    src={icon}
+                    alt={label}
+                    className={`size-5 group-hover:brightness-0 group-hover:invert ${
+                      isActive ? "brightness-0 invert" : "text-dark-200"
+                    }`}
+                  />
+                  {label}
+                </div>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+
+        <footer className="nav-footer">
+<img src={user?.imageUrl || '/assets/images/Naif.jpg' } alt={user?.name || 'Naif'  } />
+
+<article >
+<h2>{user?.name}</h2>
+<p>{user?.email}</p>
+</article>
+
+<button onClick ={() => {
+console.log ('LOGOUT')
+
+    }} className="cursor-pointer">
+    
+    <img src="/assets/icons/logout.svg" alt="logout" className="sise-6" 
+        
+    />
+</button>
+        </footer>
+      </div>
+    </section>
+  );
 };
 
-export default NavItems; 
+export default NavItems;
