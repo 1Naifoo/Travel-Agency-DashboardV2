@@ -7,9 +7,13 @@ interface Props {
 const Header = ({title, description}: Props) => {
 
     return (
-        <div>
+      <header className="header">
 
-        </div>
+        <article>
+            <h1>{title}</h1>
+            <p>{description}</p>
+        </article>
+      </header>
 
     ) 
 }

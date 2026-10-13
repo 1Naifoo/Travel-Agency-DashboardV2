@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <main className="dashboard wrapper">
 <Header
-    title={'Welcome ${user?. name ?? "Guest"}👋 '}
+    title={`Welcome ${user ?.name ?? "Guest"} 👋`}
     description = "Track activity, trends and popular destinations in real time "
 />
   
