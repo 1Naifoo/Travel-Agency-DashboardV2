@@ -8,7 +8,8 @@
 @import "@syncfusion/ej2-material3-theme/styles/drop-down-button/index.css";
 @import "@syncfusion/ej2-material3-theme/styles/drop-down-list/index.css";
 @import "tailwindcss";
-
+@import "@syncfusion/ej2-base/styles/material.css";
+@import "@syncfusion/ej2-buttons/styles/material.css";
 @theme {
   --font-figtree: "Figtree", sans-serif;
   --font-inter: "Inter", sans-serif;
