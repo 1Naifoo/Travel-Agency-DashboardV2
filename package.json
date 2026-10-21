@@ -11,6 +11,8 @@
   "dependencies": {
     "@react-router/node": "^8.4.0",
     "@react-router/serve": "^8.4.0",
+    "@sentry/profiling-node": "^11.8.0",
+    "@sentry/react-router": "^11.8.0",
     "@syncfusion/ej2-base": "^31.2.18",
     "@syncfusion/ej2-buttons": "^31.2.18",
     "@syncfusion/ej2-dropdowns": "^31.2.18",
