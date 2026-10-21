@@ -4,37 +4,43 @@ import { redirect } from "react-router";
 
 export const loginWithGoogle = async () => {
     try {
-        account.createOAuth2Session( OAuthProvider.Google )
+        account.createOAuth2Session({
+            provider: OAuthProvider.Google,
+            success: `${window.location.origin}/dashboard`,
+            failure: `${window.location.origin}/sign-in`,
+        });
     } catch (e) {
         console.log('loginWithGoogle', e);
     }
 
 }
 
-export const getUser = async () => {
-    try {
-             const user = await  account.get();
+export const getUser = async (): Promise<User | null> => {
+  try {
+    const user = await account.get();
 
-             if(!user) return redirect('/sign-in');
+    if (!user) return null;
 
-             const { documents } = await database.listDocuments(
+    const { documents } = await database.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      [
+        Query.equal("accountId", user.$id),
+        Query.select(["name", "email", "imageUrl", "joinedAt", "accountId"]),
+      ]
+    );
 
-                appwriteConfig.databaseId,
-                appwriteConfig.userCollectionId,
-             [
-                Query.equal('accountId', user.$id),
-                Query.select(['name' , 'email', 'imageUrl', 'joinedAt', 'accountId'])
-             ]
-             );
-
-             if(documents.length === 0){
-
-                return await storeUserData;
-             }
-    } catch (e) {
-        console.log(e);
+    if (documents.length === 0) {
+      return ((await storeUserData()) as unknown as User) ?? null;
     }
-}
+
+    return documents[0] as unknown as User;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+};
+
 export const logoutUser = async () => {
     try {
         await account.deleteSession({ sessionId: 'current' });
@@ -119,7 +125,7 @@ const imageUrl = await getGooglePicture();
         console.log('storeUserData error: ',e);
     }
 }
-export const getExistingUser = async () => {
+export const getExistingUser = async ($id: string) => {
     try {
         const user = await account.get();
 
