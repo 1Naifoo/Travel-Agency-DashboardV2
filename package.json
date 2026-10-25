@@ -23,6 +23,7 @@
     "@syncfusion/ej2-react-charts": "^35.1.39",
     "@syncfusion/ej2-react-dropdowns": "^31.2.18",
     "@syncfusion/ej2-react-grids": "^31.2.18",
+    "@syncfusion/ej2-react-maps": "^35.1.37",
     "@syncfusion/ej2-react-navigations": "^35.1.39",
     "@syncfusion/ej2-react-splitbuttons": "^35.1.37",
     "@syncfusion/ej2-splitbuttons": "^31.2.12",

@@ -8,8 +8,6 @@
 @import "@syncfusion/ej2-material3-theme/styles/drop-down-button/index.css";
 @import "@syncfusion/ej2-material3-theme/styles/drop-down-list/index.css";
 @import "tailwindcss";
-@import "@syncfusion/ej2-base/styles/material.css";
-@import "@syncfusion/ej2-buttons/styles/material.css";
 @theme {
   --font-figtree: "Figtree", sans-serif;
   --font-inter: "Inter", sans-serif;
@@ -469,6 +467,10 @@
   .combo-box {
     @apply !p-3.5 !border w-full !border-light-400 !rounded-xl !text-base !text-dark-300 !font-normal;
   }
+  .e-ddl-icon.e-input-group-icon {
+  position: relative !important;
+  top: 0px !important;
+}
 }
 
 html,
@@ -543,4 +545,26 @@ body {
   position: absolute;
   top: 45px;
   right: 40px;
+}
+/* remove the underline under dropdowns */
+.e-input-group::before,
+.e-input-group::after,
+.e-input-group.e-control-wrapper::before,
+.e-input-group.e-control-wrapper::after {
+  display: none !important;
+}
+
+.e-input-group,
+.e-input-group.e-control-wrapper {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.trip-form .e-input-group,
+.trip-form .e-input-group.e-control-wrapper,
+.trip-form .e-ddl.e-control-wrapper,
+.trip-form .e-ddl.e-input-group {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
 }

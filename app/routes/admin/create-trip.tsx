@@ -1,6 +1,15 @@
 import { ComboBoxComponent } from "@syncfusion/ej2-react-dropdowns";
 import { Header } from "../../../components"
 import type { Route } from "./+types/create-trip";
+import { comboBoxItems, selectItems } from "~/constants";
+import { formatKey } from "~/lib/utils";
+import { useState } from "react";
+import {
+  MapsComponent,
+  LayersDirective,
+  LayerDirective,
+} from "@syncfusion/ej2-react-maps";
+import { world_map } from "~/constants/world_map";
 
 const BASE_URL = "https://api.restcountries.com/countries/v5";
 
@@ -49,18 +58,36 @@ export const loader = async () => {
 };
 
 const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
+        const countries = loaderData as Country[];
+   const [formatData, setFormatData] = useState<TripFormData>({
+     country: countries[0]?.name || '',
+     travelStyle: '',
+    interest: '',
+    budget: '',
+    duration: 0,
+    groupType: '',
+   });
+
+
     const handleSubmit = async () => {};
     const handleChange = (key: keyof TripFormData, value: string | number) => {
 
     };
-    const countries = loaderData as Country[];
+
 
     const countryData = countries.map((country) => ({
         text: country.name,
         value: country.value,
     }));
 
-    console.log(countries);
+   const mapData = [
+    {
+    country: formatData.country,
+    color: "#EA382E",
+    coordinates: countries.find((c: Country) => c.name === formatData.country)?.coordinates || []
+}
+
+   ]
     return (
         <main className="flex flex-col gap-10 pb-20 wrapper">
             <Header
@@ -114,6 +141,66 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
                         />
                  </div>
 
+                    {selectItems.map((key) => (
+                       <div key={key}>
+                        <label htmlFor={key}>{formatKey(key)}</label>    
+                      
+                        <ComboBoxComponent
+                            id={key}   
+                            dataSource={comboBoxItems[key].map((item) => ({ 
+                                text: item, value: item }))}
+                                fields={{ text: "text", value: "value" }}
+                                placeholder={`Select a ${formatKey(key)}`}
+                                className="combo-box"
+                            
+                                change={(e:{value: string | undefined}) => {   
+
+                            if(e.value) {
+                                handleChange(key, e.value);
+                                }   
+                            }
+                        }
+                            allowFiltering
+                           filtering={(e) => {
+                                const query = e.text?.toLowerCase() ?? "";
+
+                                e.updateData(
+                                    comboBoxItems[key]
+                                        .filter((item) => item.toLowerCase().includes(query))
+                                        .map((item) => ({
+                                            text: item,
+                                            value: item,
+                                        }))
+                                );
+                            }
+                           }
+
+                            />
+                       </div> 
+                    ))}
+
+
+                    <div>
+                        <label htmlFor="location">Location on the world map
+
+
+
+                        </label>
+                            <MapsComponent>
+                                <LayersDirective>
+                                    
+                                <LayerDirective
+                                shapeData={world_map}
+                                shapeSettings={{ fill: "#E5E7EB" }}
+                                dataSource={mapData}
+                                />
+
+                                </LayersDirective>
+
+                            </MapsComponent>
+                        
+
+                    </div>
                 </form>
             </section>
         </main>
