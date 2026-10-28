@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@react-router/node": "^8.4.0",
     "@react-router/serve": "^8.4.0",
     "@sentry/profiling-node": "^11.8.0",
@@ -19,7 +20,7 @@
     "@syncfusion/ej2-grids": "^31.2.18",
     "@syncfusion/ej2-material3-theme": "^35.1.39",
     "@syncfusion/ej2-navigations": "^31.2.16",
-    "@syncfusion/ej2-react-buttons": "^35.1.37",
+    "@syncfusion/ej2-react-buttons": "^35.1.41",
     "@syncfusion/ej2-react-charts": "^35.1.39",
     "@syncfusion/ej2-react-dropdowns": "^31.2.18",
     "@syncfusion/ej2-react-grids": "^31.2.18",

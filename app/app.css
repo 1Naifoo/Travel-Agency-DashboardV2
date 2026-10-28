@@ -7,6 +7,7 @@
 @import "@syncfusion/ej2-material3-theme/styles/sidebar/index.css";
 @import "@syncfusion/ej2-material3-theme/styles/drop-down-button/index.css";
 @import "@syncfusion/ej2-material3-theme/styles/drop-down-list/index.css";
+@import "@syncfusion/ej2-material3-theme/styles/chips/index.css";
 @import "tailwindcss";
 @theme {
   --font-figtree: "Figtree", sans-serif;
@@ -438,8 +439,8 @@
     @apply text-sm md:text-base font-semibold;
   }
   .button-class {
-    @apply !bg-primary-100 !px-4 !rounded-lg !flex !items-center !justify-center !gap-1.5 !shadow-none;
-  }
+  @apply !bg-primary-100 !px-4 !rounded-lg !flex !items-center !justify-center !gap-1.5 !shadow-none;
+}
   .button-class-secondary {
     @apply !bg-white !px-4 !rounded-lg !flex !items-center !justify-center !gap-1.5 !shadow-sm;
   }
@@ -568,3 +569,4 @@ body {
   min-width: 0 !important;
   margin: 0 !important;
 }
+
