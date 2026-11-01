@@ -15,7 +15,6 @@ A full-stack travel agency admin dashboard. Track users and trips, view analytic
 - 🔐 Authentication and database with Appwrite
 - 🐞 Error tracking with Sentry
 - ⚡ Server-side rendering with React Router
-- 🐳 Docker-ready
 - 🤖 *Planned:* AI trip itineraries with Google Gemini
 
 ## Tech Stack
