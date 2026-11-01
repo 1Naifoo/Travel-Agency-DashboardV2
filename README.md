@@ -40,7 +40,7 @@ A full-stack travel agency admin dashboard. Track users and trips, view analytic
 | Backend, auth, database | Appwrite |
 | Monitoring | Sentry |
 | AI | Google Gemini (`@google/generative-ai`) |
-| Deployment | Docker |
+
 
 ## Getting Started
 
@@ -93,12 +93,6 @@ Open `http://localhost:5173`.
 | `npm run start` | Serve the production build |
 | `npm run typecheck` | Generate route types and run TypeScript |
 
-## Deployment
-
-```bash
-docker build -t travel-agency-dashboard .
-docker run -p 3000:3000 --env-file .env travel-agency-dashboard
-```
 
 ## Project Structure
 
