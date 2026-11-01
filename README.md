@@ -4,8 +4,6 @@ A full-stack travel agency admin dashboard. Track users and trips, view analytic
 
 > 🚧 **Status:** In progress. The core dashboard works. AI trip generation is being added.
 
-> 🙏 **Credit:** This project is built by following the [Travel Agency Dashboard tutorial](https://github.com/adrianhajdin/travel-agency-dashboard) by [Adrian Hajdin](https://github.com/adrianhajdin) ([JavaScript Mastery](https://www.youtube.com/@javascriptmastery)). Full credit for the original design and concept goes to him.
-
 ## Features
 
 - 📊 Admin dashboard with user growth and trip analytics
@@ -16,6 +14,19 @@ A full-stack travel agency admin dashboard. Track users and trips, view analytic
 - 🐞 Error tracking with Sentry
 - ⚡ Server-side rendering with React Router
 - 🤖 *Planned:* AI trip itineraries with Google Gemini
+
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="./public/assets/pic%200.png" alt="Screenshot 1" width="100%" /></td>
+    <td><img src="./public/assets/pic%201.png" alt="Screenshot 2" width="100%" /></td>
+  </tr>
+  <tr>
+    <td><img src="./public/assets/pic%202.png" alt="Screenshot 3" width="100%" /></td>
+    <td><img src="./public/assets/pic%203.png" alt="Screenshot 4" width="100%" /></td>
+  </tr>
+</table>
 
 ## Tech Stack
 
@@ -108,7 +119,3 @@ docker run -p 3000:3000 --env-file .env travel-agency-dashboard
 ## Author
 
 **Naif Omran** · [@1Naifoo](https://github.com/1Naifoo)
-
-## Acknowledgements
-
-- [Adrian Hajdin / JavaScript Mastery](https://github.com/adrianhajdin/travel-agency-dashboard) for the original tutorial and project
